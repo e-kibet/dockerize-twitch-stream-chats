@@ -1,0 +1,17 @@
+version: "3"
+services:
+  twitch.chat.tmi:
+    image: twitch.chat.tmi
+    container_name: twitch.chat.tmi
+    build: .
+    networks:
+      - twitch.chat.network
+  web-cli:
+    image: twitch.chat.tmi
+    networks:
+      - twitch.chat.network
+    command: sh
+
+networks:
+  twitch.chat.network:
+    driver: "bridge"
