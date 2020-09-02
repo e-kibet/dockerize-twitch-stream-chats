@@ -6,6 +6,18 @@ services:
     build: .
     networks:
       - twitch.chat.network
+  mysql:
+    image: mysql:8.0.17
+    container_name: twitch.chat.db
+    volumes:
+      - ./mysql-docker:/docker-entrypoint-initdb.d
+    networks:
+      - twitch.chat.network
+    ports:
+      - "3506:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: twitch.chat.db
   web-cli:
     image: twitch.chat.tmi
     networks:
