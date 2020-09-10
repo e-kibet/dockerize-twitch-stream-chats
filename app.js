@@ -6,9 +6,10 @@ const client = new tmi.Client({
         secure: true,
         reconnect: true
     },
-    channels: ['codinggarden', 'bjkegley', 'ShemicalX']//enter channels you want to listen to
+    channels: ['codinggarden', 'bjkegley', 'ShemicalX', 'LinusTech', 'danistem', 'strager']
 });
 client.connect();
+console.log("[*] Waiting for twitch channels to be online")
 client.on('message', async (channel, tags, message, self) => {
     console.log("----------------------------------------------------------------------------------")
     let json = { channel: channel, display_name: tags['display-name'], message_type: tags['message-type'], message: message, subscriber: tags['subscriber'] };

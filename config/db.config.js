@@ -1,9 +1,9 @@
 const options = {
     client: 'mysql2',
     connection: {
-        host: 'twitch.chat.db',
-        user: 'root',
-        password: 'root',
+        host: 'localhost',
+        user: 'dev',
+        password: 'dev',
         database: 'twitch.chat.db'
     }
 }
